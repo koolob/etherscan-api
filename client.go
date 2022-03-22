@@ -91,6 +91,10 @@ func NewCustomized(config Customization) *Client {
 	}
 }
 
+func (c *Client) Call(module, action string, param map[string]interface{}, outcome interface{}) (err error) {
+	return c.call(module, action, param, outcome)
+}
+
 // call does almost all the dirty work.
 func (c *Client) call(module, action string, param map[string]interface{}, outcome interface{}) (err error) {
 	// fire hooks if in need
